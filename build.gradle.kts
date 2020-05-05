@@ -22,6 +22,8 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.apache.commons:commons-pool2:2.7.0")
+    implementation("org.apache.httpcomponents:httpclient:4.5")
     runtimeOnly("com.h2database:h2")
     runtimeOnly("mysql:mysql-connector-java")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {

@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    open-in-view: false
+  profiles:
+    active: default
+server:
+  port: ${running.port:8080}
+  tomcat:
+    max-threads: 50
+    min-spare-threads: 10
+  jackson:
+    serialization.fail-on-empty-beans: false
+---
+spring:
+  profiles:
+    active: sandbox
+---
+spring:
+  profiles:
+    active: production
