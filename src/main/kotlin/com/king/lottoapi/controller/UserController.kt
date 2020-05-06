@@ -1,6 +1,8 @@
 package com.king.lottoapi.controller
 
-import org.springframework.web.bind.annotation.RequestMapping
+import com.king.lottoapi.service.UserService
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 
@@ -10,9 +12,19 @@ import org.springframework.web.bind.annotation.RestController
  */
 
 @RestController
-class UserController {
-    @RequestMapping("/api/v1/user")
-    fun hello() : String {
+class UserController(private val userService: UserService) {
+    @PostMapping("/api/v1/user")
+    fun checkAndSave(@RequestBody users: UsersRequest) : String {
+        userService.saveUsers(users)
         return "ok~!! User API!"
     }
 }
+
+data class UsersRequest(
+        val externalId : String,
+        val nickName: String?,
+        val gender: String?,
+        val type: String,
+        val profileImage: String?,
+        val thumnailImage: String?
+)
