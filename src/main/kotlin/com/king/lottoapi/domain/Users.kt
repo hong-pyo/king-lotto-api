@@ -1,8 +1,8 @@
 package com.king.lottoapi.domain
 
 import com.king.lottoapi.controller.UsersRequest
-import com.king.lottoapi.enums.UserAuth
-import com.king.lottoapi.enums.UserType
+import com.king.lottoapi.enums.AuthType
+import com.king.lottoapi.enums.AccountType
 import org.springframework.data.annotation.Persistent
 import javax.persistence.*
 
@@ -22,9 +22,9 @@ data class Users(
         val gender: String?,
         val status: String,
         @Enumerated(EnumType.STRING)
-        val type: UserType,
+        val type: AccountType,
         @Enumerated(EnumType.STRING)
-        val auth: UserAuth,
+        val authType: AuthType,
         val profileImage: String?,
         val thumnailImage: String?,
         @Persistent
@@ -37,7 +37,7 @@ data class Users(
                 gender = gender,
                 status = status,
                 type = type,
-                auth = auth,
+                authType = authType,
                 profileImage = profileImage,
                 thumnailImage = thumnailImage,
                 visitCount = visitCount
@@ -49,9 +49,9 @@ data class Users(
                                 externalId = usersRequest.externalId,
                                 nickName = usersRequest.nickName,
                                 gender = usersRequest.gender,
-                                type = UserType.KAKAO, // todo 받아온거에서 찾아넣도록 변경해야함.
+                                type = AccountType.KAKAO, // todo 받아온거에서 찾아넣도록 변경해야함.
                                 status = "REGIST", // todo 여기도 enum 으로 변경한후 바꿔주기.
-                                auth = UserAuth.NORMAL,
+                                authType = AuthType.NORMAL,
                                 profileImage = usersRequest.profileImage,
                                 thumnailImage = usersRequest.thumnailImage,
                                 visitCount = 0L

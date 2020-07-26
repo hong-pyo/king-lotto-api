@@ -6,7 +6,7 @@ package com.king.lottoapi.enums
  *   Time : 1:02 오전
  */
 
-enum class UserType(val description: String) {
+enum class AccountType(val description: String) {
     KAKAO("KAKAO"),
     NAVER("NAVER"),
     GOOGLE("GOOGLE")
